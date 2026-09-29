@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "maiorov-agent-stack",
+  "version": "1.0.0",
+  "description": "Reusable operating rules and skills for Alexey Maiorov's ChatGPT and Codex workflows.",
+  "repository": "https://github.com/maiorovalekseyo-create/maiorov-agent-stack",
+  "license": "MIT",
+  "keywords": ["agent-skills", "codex", "workflow", "verification", "project-memory"]
+}
