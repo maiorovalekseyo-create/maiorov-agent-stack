@@ -25,6 +25,13 @@ Make the working method persistent across projects and agent sessions:
 8. prove-it — verify real results before completion
 9. project-memory — maintain durable confirmed context
 
+
+## V2 activation (candidate branch only)
+- Plugin candidate: `2.0.0-rc.1` in `develop/maiorov-stack-v2`.
+- Install and read-only smoke tests: [docs/USAGE.md](docs/USAGE.md).
+- Actual installation / invocation status: [docs/ACTIVATION_STATUS.md](docs/ACTIVATION_STATUS.md).
+- A GitHub link in account memory does **not** install skills. Do not merge or propagate to active project repos before verifying on the target runtime.
+
 ## Project bootstrap
 Each project should include:
 - `AGENTS.md`
