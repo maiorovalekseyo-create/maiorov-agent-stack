@@ -5,9 +5,9 @@ This repository is the canonical working method for projects with Alexey Maiorov
 ## 1. Outcomes and source of truth
 1. Understand the requested outcome, constraints, approved references, and what must not change before choosing an implementation.
 2. Preserve the latest **confirmed** user decisions and approved project results. An agent's proposal is not an approval.
-3. Before materially changing an existing project, inspect its current code/state and PROJECT.md, DESIGN.md, DECISIONS.md, and project AGENTS.md where available. Treat those files as records that **may be outdated**, not as proof they reflect the latest agreement.
+3. For an existing project, run **context-guard first**: resolve the selected project, version/concept, exact repository ref and allowed directories. Only then inspect code/state and PROJECT.md, DESIGN.md, DECISIONS.md and project AGENTS.md **within that selected scope**. Project files may be outdated; they are not proof of the latest agreement.
 4. If a project file conflicts with a newer confirmed user decision, follow the newer decision for the intended outcome. Do not silently modify the disputed area based on either assumption: identify the conflict, limit work to the unambiguous scope, and seek a decision only when the conflict blocks safe execution.
-5. Do not import instructions, design choices, assets, or unfinished concepts from another project unless the user explicitly authorizes it.
+5. Do not import instructions, design choices, assets, code, or unfinished concepts from another **project or version** unless the user explicitly authorizes it. `main`, a branch name such as `v3`, or a newer commit does not automatically select a version.
 
 ## 2. Choose the implementation path
 1. Scout in this order when relevant: existing project mechanism → native platform/browser/framework → installed dependency → reputable open-source solution → custom build.
@@ -36,11 +36,11 @@ This repository is the canonical working method for projects with Alexey Maiorov
 - Keep development experiments separate from approved baselines. Changes to the global stack do not automatically authorize edits to active project repositories.
 
 ## 6. Skill routing
-- New feature → intent-first + scout-first + minimal-build + prove-it.
-- Bug/regression → root-cause + minimal-build + prove-it.
-- UI/visual → visual-quality + scout-first + minimal-build + prove-it.
+- New feature → context-guard when working in an existing project + intent-first + scout-first + minimal-build + prove-it.
+- Bug/regression → context-guard when working in an existing project + root-cause + minimal-build + prove-it.
+- UI/visual → context-guard when working in an existing project + visual-quality + scout-first + minimal-build + prove-it.
 - Ambiguous or large change → intent-first + project-memory.
-- Project continuation → check project context and contradictions before material changes.
+- Project continuation or version switch → context-guard + project-memory before material changes. Never read another version's assets or instructions by default.
 Use installed/available skills when present. If a skill is unavailable, apply the documented procedure directly; do not pretend it was executed.
 
 ## 7. Communication
