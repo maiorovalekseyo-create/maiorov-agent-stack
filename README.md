@@ -15,13 +15,14 @@ Make the working method persistent across projects and agent sessions:
 - keep project memory in durable files.
 
 ## Core stack
-1. scout-first
-2. minimal-build
-3. intent-first
-4. root-cause
-5. visual-quality
-6. prove-it
-7. project-memory
+1. context-guard — lock the selected project/version/ref; prevent cross-version contamination
+2. scout-first
+3. minimal-build
+4. intent-first
+5. root-cause
+6. visual-quality
+7. prove-it
+8. project-memory
 
 ## Project bootstrap
 Each project should include:
