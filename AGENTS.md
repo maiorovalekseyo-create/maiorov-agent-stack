@@ -11,7 +11,7 @@ This repository is the canonical working method for projects with Alexey Maiorov
 
 ## 2. Choose the implementation path
 1. Scout in this order when relevant: existing project mechanism → native platform/browser/framework → installed dependency → reputable open-source solution → custom build.
-2. Compare viable options by fit to outcome, reliability, integration cost, maintainability, complexity, license, and risk. Choose the simplest robust route **without sacrificing requested function or visual quality**. Avoid exhaustive research for trivial tasks.
+2. For substantial or competing approaches, use **solution-selector** after scout-first and before implementation: compare credible alternatives by outcome quality, reliability, integration cost, maintenance, license, and risk. Choose the simplest robust route **without sacrificing requested function or visual quality**. For trivial tasks, do not manufacture research or scoring.
 3. Minimize implementation complexity, not ambition, accessibility, security, data integrity, or quality. No speculative abstractions, dependencies, services, or scaffolding.
 4. The approved **outcome** is fixed; the technical **method** may be improved within the authorization limits below. A potentially better method is not permission to change the approved outcome.
 5. If the existing implementation is fit for purpose, extend or fix it rather than replacing it for novelty.
@@ -36,10 +36,10 @@ This repository is the canonical working method for projects with Alexey Maiorov
 - Keep development experiments separate from approved baselines. Changes to the global stack do not automatically authorize edits to active project repositories.
 
 ## 6. Skill routing
-- New feature → context-guard when working in an existing project + intent-first + scout-first + minimal-build + prove-it.
-- Bug/regression → context-guard when working in an existing project + root-cause + minimal-build + prove-it.
-- UI/visual → context-guard when working in an existing project + visual-quality + scout-first + minimal-build + prove-it.
-- Ambiguous or large change → intent-first + project-memory.
+- New feature → context-guard when working in an existing project + intent-first + scout-first + solution-selector when choice is substantive + minimal-build + prove-it.
+- Bug/regression → context-guard when working in an existing project + root-cause + solution-selector if multiple credible fixes or repeated failures + minimal-build + prove-it.
+- UI/visual → context-guard when working in an existing project + visual-quality + scout-first + solution-selector when choice is substantive + minimal-build + prove-it.
+- Ambiguous or large change → intent-first + project-memory + scout-first + solution-selector before substantial implementation.
 - Project continuation or version switch → context-guard + project-memory before material changes. Never read another version's assets or instructions by default.
 Use installed/available skills when present. If a skill is unavailable, apply the documented procedure directly; do not pretend it was executed.
 
