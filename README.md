@@ -16,13 +16,14 @@ Make the working method persistent across projects and agent sessions:
 
 ## Core stack
 1. context-guard — lock the selected project/version/ref; prevent cross-version contamination
-2. scout-first
-3. minimal-build
-4. intent-first
-5. root-cause
-6. visual-quality
-7. prove-it
-8. project-memory
+2. intent-first — define the outcome, boundaries and non-regression criteria
+3. scout-first — discover existing/native/open-source paths
+4. solution-selector — select the best viable implementation path before substantial building
+5. minimal-build — implement without needless complexity
+6. root-cause — debug shared causes rather than symptoms
+7. visual-quality — preserve approved visual direction
+8. prove-it — verify real results before completion
+9. project-memory — maintain durable confirmed context
 
 ## Project bootstrap
 Each project should include:
