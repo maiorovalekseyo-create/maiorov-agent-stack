@@ -1,7 +1,7 @@
 {
-  "name": "maiorov-stack-marketplace",
+  "name": "maiorov-stack-impeccable-experiment",
   "interface": {
-    "displayName": "MAIOROV STACK"
+    "displayName": "MAIOROV STACK — Impeccable experiment"
   },
   "plugins": [
     {
@@ -9,7 +9,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/maiorovalekseyo-create/maiorov-agent-stack",
-        "ref": "develop/maiorov-stack-v2"
+        "ref": "experiment/impeccable-v4.5.2"
       },
       "policy": {
         "installation": "AVAILABLE",
