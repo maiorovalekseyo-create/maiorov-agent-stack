@@ -38,10 +38,10 @@ This repository is the canonical working method for projects with Alexey Maiorov
 ## 6. Skill routing
 - New feature → context-guard when working in an existing project + intent-first + scout-first + solution-selector when choice is substantive + minimal-build + prove-it.
 - Bug/regression → context-guard when working in an existing project + root-cause + solution-selector if multiple credible fixes or repeated failures + minimal-build + prove-it.
-- UI/visual → context-guard when working in an existing project + visual-quality + scout-first + solution-selector when choice is substantive + minimal-build + prove-it.
+- UI/visual → context-guard when working in an existing project + visual-quality + scout-first + solution-selector when choice is substantive + impeccable-bridge when available + minimal-build + prove-it.
 - Ambiguous or large change → intent-first + project-memory + scout-first + solution-selector before substantial implementation.
 - Project continuation or version switch → context-guard + project-memory before material changes. Never read another version's assets or instructions by default.
-Use installed/available skills when present. If a skill is unavailable, apply the documented procedure directly; do not pretend it was executed.
+Use installed/available skills when present. If a skill is unavailable, apply the documented procedure directly; do not pretend it was executed.\n\nOn frontend development, UI changes, interface audits, responsive work, or website verification, use `impeccable-bridge` automatically when it is available. Do not invoke it for backend-only, infrastructure, data, repository-housekeeping, or other non-UI work. Impeccable is diagnostic support: selected project rules and approved `DESIGN.md` remain authoritative; `solution-selector` owns implementation choices; `visual-quality` owns visual fidelity; `prove-it` owns completion status.
 
 ## 7. Communication
 Keep responses concise and result-first: what changed, why this route, what was verified, what remains. For website results provide a real preview link and the commit/version only when available and checked. Prefer completing safe work over discussing routine implementation. Do not claim completion when meaningful verification is outstanding.
