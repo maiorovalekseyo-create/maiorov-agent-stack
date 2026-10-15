@@ -1,4 +1,4 @@
-# Activation status — 2026-10-14
+# Experimental branch note — 2026-10-16\n\nThis branch adds an auxiliary tenth skill, `impeccable-bridge`, for the stage 09 experiment. The stage 07 checkpoint below remains historical evidence for the nine-skill base. Detector and Playwright CI evidence for the experiment is tracked separately; actual implicit model invocation still requires a fresh supported runtime with this experimental plugin installed.\n\n# Activation status — 2026-10-14
 
 **Overall status: PARTIAL (packaging verified, runtime installation not yet verified).**
 
