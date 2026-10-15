@@ -32,7 +32,7 @@ Make the working method persistent across projects and agent sessions:
 - Actual installation / invocation status: [docs/ACTIVATION_STATUS.md](docs/ACTIVATION_STATUS.md).
 - A GitHub link in account memory does **not** install skills. Do not merge or propagate to active project repos before verifying on the target runtime.
 
-## Project bootstrap
+## Experimental Impeccable companion\n\nThe `experiment/impeccable-v4.5.2` branch adds one auxiliary `impeccable-bridge` skill. It pins upstream skill/CLI `4.5.2` and engine `0.1.14`, preserves MAIOROV STACK as the authority, and tests detector plus Playwright evidence in an isolated fixture. It is not merged into `develop` or `main`.\n\n## Project bootstrap
 Each project should include:
 - `AGENTS.md`
 - `PROJECT.md`
