@@ -42,8 +42,10 @@
   form.addEventListener('submit', (event) => {
     event.preventDefault();
     const message = 'Test signal accepted locally.';
-    if (formStatus) formStatus.textContent = message;
-    else status.textContent = message;
+    if (formStatus) {
+      formStatus.textContent = message;
+      formStatus.scrollIntoView({ block: 'nearest' });
+    } else status.textContent = message;
     form.reset();
   });
 
