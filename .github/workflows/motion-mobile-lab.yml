@@ -71,9 +71,15 @@ jobs:
           const [baselinePath, fixedPath] = process.argv.slice(2);
           const baseline = JSON.parse(fs.readFileSync(baselinePath, 'utf8'));
           const fixed = JSON.parse(fs.readFileSync(fixedPath, 'utf8'));
-          const primaryFixed = fixed.filter((finding) => finding.severity !== 'advisory');
-          console.log(JSON.stringify({ baseline, fixed, primaryFixed }, null, 2));
-          if (primaryFixed.length > 0) process.exitCode = 1;
+          const baselineIds = new Set(baseline.map((finding) => finding.antipattern));
+          const regressions = fixed.filter((finding) => !baselineIds.has(finding.antipattern));
+          console.log(JSON.stringify({
+            policy: 'Impeccable is an advisory visual guard; motion/mobile gates run separately.',
+            baseline,
+            fixed,
+            regressions,
+          }, null, 2));
+          if (regressions.length > 0) process.exitCode = 1;
           NODE
 
       - name: Install exact Playwright dependencies
