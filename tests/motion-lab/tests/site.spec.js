@@ -121,7 +121,9 @@ test('baseline defects are reproduced and the fixed interface passes motion, tou
   expect(browserEvidence.baseline.gesture.touchAction).toBe('none');
   expect(browserEvidence.fixed.gesture.touchAction).toBe('pan-y');
   if (browserEvidence.fixed.gesture.scrollWidth > browserEvidence.fixed.gesture.clientWidth) {
-    expect(browserEvidence.fixed.gesture.scrollLeft).toBeGreaterThan(20);
+    const maximumScroll = browserEvidence.fixed.gesture.scrollWidth - browserEvidence.fixed.gesture.clientWidth;
+    expect(browserEvidence.fixed.gesture.scrollLeft).toBeGreaterThan(0);
+    expect(Math.abs(browserEvidence.fixed.gesture.scrollLeft - maximumScroll)).toBeLessThanOrEqual(2);
   } else {
     expect(browserEvidence.fixed.gesture.scrollLeft).toBe(0);
   }
