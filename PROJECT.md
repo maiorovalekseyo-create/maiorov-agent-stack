@@ -28,3 +28,20 @@
 - Impeccable artifact: https://github.com/maiorovalekseyo-create/maiorov-agent-stack/actions/runs/38880015099/artifacts/12036344805
 - Both routing gates accepted the exact twelve-skill set and MAIOROV STACK authority order; all ten pre-existing `SKILL.md` blobs remained byte-identical to the previous develop baseline.
 - Automatic skill invocation by a fresh ChatGPT Work/Codex session, physical-device/Safari behavior, and sustained 60 FPS remain unverified.
+
+## Stage 11 — form reliability finalization
+
+- Accepted source: `experiment/motion-form-reliability-v1` at `a7b216800c9fa663431d8b190c9270aed41e5e67`.
+- Promoted implementation commit: `42f05271b349ba1f045abe5631a065b439d35122`.
+- Scope: compact mobile email geometry, local form confirmation, immediate visibility of that confirmation, and focused desktop/mobile Playwright coverage.
+- Preserved: the intentional `tests/motion-lab/baseline/index.html` fixture, the twelve-skill set, plugin version `2.0.0-rc.3`, the `develop/maiorov-stack-v2` workflow trigger, and all active projects.
+- Not promoted: the temporary `experiment/motion-form-reliability-v1` workflow trigger.
+- Develop verification: pending on the documentation commit that records this promotion.
+
+### Capabilities not verified by the automated laboratories
+
+- Automatic skill invocation in a fresh ChatGPT Work or Codex session.
+- Safari/WebKit and physical iOS/Android device behavior.
+- iOS input zoom, software-keyboard resizing, safe-area feel, browser-chrome changes, rubber-banding, sticky hover, tap delay, and physical gesture quality.
+- Sustained 60 FPS under representative real-device load; CI frame timing remains diagnostic only.
+
