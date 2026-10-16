@@ -32,3 +32,13 @@
 - Authority: project rules and approved `DESIGN.md` remain first; MAIOROV STACK controls routing and decisions; the new skills are specialized companions.
 - Proof boundary: Playwright proves defined browser behavior; source audit identifies known risk patterns; CI rAF timing is diagnostic and cannot establish real-device 60 FPS or automatic model invocation.
 - Revisit when: a real project requires springs/layout animation that native primitives cannot provide, the upstream commit changes, or physical-device evidence contradicts the guidance.
+
+## Promote the accepted motion and mobile integration to develop
+
+- Date: 2026-10-16.
+- Decision: promote the accepted `experiment/motion-mobile-v1` commit `835eccf2aaf4def1416382098f915dd52cc7dde3` to `develop/maiorov-stack-v2`, then release it as candidate `2.0.0-rc.3`.
+- Preserved: the ten pre-existing `SKILL.md` blobs are byte-identical to the pre-promotion develop commit `3327f6ecf10e06444d21ccbe4b9ddfcb4f61cfad`; the isolated test site is unchanged.
+- Added: `motion-quality`, `mobile-interaction`, pinned Emil Kowalski attribution/license/integrity records, routing rules, and the accepted motion/mobile test workflow.
+- Compatibility fix: both routing gates now expect the complete twelve-skill set and candidate version `2.0.0-rc.3`.
+- Boundary: MAIOROV STACK remains authoritative; `main`, active sites, global installations, ChatGPT settings, and the approved fixture design remain unchanged.
+- Proof boundary: GitHub Actions can prove repository integrity and defined browser behavior, but not automatic fresh-session invocation, real-device feel, Safari coverage, or sustained 60 FPS.

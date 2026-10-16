@@ -14,7 +14,7 @@ Make the working method persistent across projects and agent sessions:
 - verify real results before saying "done";
 - keep project memory in durable files.
 
-## Core stack
+## Skill set (12)
 1. context-guard — lock the selected project/version/ref; prevent cross-version contamination
 2. intent-first — define the outcome, boundaries and non-regression criteria
 3. scout-first — discover existing/native/open-source paths
@@ -24,10 +24,13 @@ Make the working method persistent across projects and agent sessions:
 7. visual-quality — preserve approved visual direction
 8. prove-it — verify real results before completion
 9. project-memory — maintain durable confirmed context
+10. impeccable-bridge — run pinned Impeccable diagnostics as a subordinate UI guard
+11. motion-quality — improve purposeful, interruptible and performance-conscious motion
+12. mobile-interaction — handle touch, gestures, scrolling, viewports and mobile-browser behavior
 
 
 ## V2 activation (candidate branch only)
-- Plugin candidate: `2.0.0-rc.2` in `develop/maiorov-stack-v2`.
+- Plugin candidate: `2.0.0-rc.3` in `develop/maiorov-stack-v2`.
 - Install and read-only smoke tests: [docs/USAGE.md](docs/USAGE.md).
 - Actual installation / invocation status: [docs/ACTIVATION_STATUS.md](docs/ACTIVATION_STATUS.md).
 - A GitHub link in account memory does **not** install skills. Do not merge or propagate to active project repos before verifying on the target runtime.
@@ -36,9 +39,9 @@ Make the working method persistent across projects and agent sessions:
 
 `develop/maiorov-stack-v2` includes one auxiliary `impeccable-bridge` skill promoted from the accepted experiment. It pins upstream skill/CLI `4.5.2` and engine `0.1.14`, preserves MAIOROV STACK as the authority, and keeps detector plus Playwright evidence in an isolated fixture. It is not merged into `main`. Actual implicit invocation still requires a fresh supported runtime and is not proven by configuration checks alone.
 
-## Experimental motion and mobile companions
+## Motion and mobile companions on the v2 candidate
 
-The `experiment/motion-mobile-v1` branch adds two focused companion skills without changing plugin version `2.0.0-rc.2`:
+`develop/maiorov-stack-v2` includes the two focused companion skills promoted from the accepted `experiment/motion-mobile-v1` commit `835eccf2aaf4def1416382098f915dd52cc7dde3` in plugin version `2.0.0-rc.3`:
 
 - `motion-quality` — purposeful, interruptible, reduced-motion-aware, performance-conscious web motion;
 - `mobile-interaction` — touch, gesture, scrolling, viewport, safe-area, and mobile-browser behavior.

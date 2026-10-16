@@ -2,7 +2,7 @@ name: Motion and mobile interaction lab
 
 on:
   push:
-    branches: [experiment/motion-mobile-v1]
+    branches: [develop/maiorov-stack-v2]
   workflow_dispatch:
 
 permissions:
@@ -18,7 +18,7 @@ jobs:
       IMPECCABLE_NO_TELEMETRY: "1"
 
     steps:
-      - name: Check out experimental branch
+      - name: Check out MAIOROV STACK v2 candidate
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       - name: Set up Node.js

@@ -1,16 +1,14 @@
-# Stage 10 experimental status — 2026-10-16
+# Stage 10 develop integration — 2026-10-16
 
-**Status: PRACTICAL CI PASS on `experiment/motion-mobile-v1`; overall PARTIAL and not promoted to develop or main.**
+**Status: PROMOTED TO `develop/maiorov-stack-v2` as candidate `2.0.0-rc.3`; target-branch CI is required before reporting the exact promotion commit as verified. Overall activation remains PARTIAL.**
 
-- Verified commit: `49d48939a42d40ca2fab839cd4c0747386929584`.
-- Successful workflow: https://github.com/maiorovalekseyo-create/maiorov-agent-stack/actions/runs/38867029616
-- Evidence artifact: https://github.com/maiorovalekseyo-create/maiorov-agent-stack/actions/runs/38867029616/artifacts/12031965883
-- Source audit found all 11 seeded baseline risks and none in the fixed version; Playwright passed 2/2 desktop/mobile projects.
-- Adds `motion-quality` and `mobile-interaction` as subordinate companions.
+- Accepted source: `experiment/motion-mobile-v1` at `835eccf2aaf4def1416382098f915dd52cc7dde3`.
+- Adds `motion-quality` and `mobile-interaction` as subordinate companions, producing a twelve-skill candidate.
+- Preserves all ten existing `SKILL.md` blobs byte-for-byte.
 - Pins `emilkowalski/skills` at `2d228630ba1446365f614a108cb8252f1feda202` with Emil Kowalski attribution and MIT license.
-- Adds an isolated baseline/fixed motion lab, deterministic source audit, and desktop/mobile Playwright workflow.
-- Keeps plugin version `2.0.0-rc.2`; no global installation, hook, or runtime animation dependency.
-- A passing workflow can verify repository structure and defined browser behavior. It cannot prove automatic model selection, physical-device touch feel, Safari-specific behavior, or sustained 60 FPS.
+- Keeps the accepted baseline/fixed fixture unchanged and runs both Impeccable and motion/mobile Playwright workflows on develop.
+- No global installation, hook, runtime animation dependency, production-site edit, or ChatGPT setting change is included.
+- Configuration can verify routing metadata; it cannot prove automatic model selection, physical-device touch feel, Safari-specific behavior, or sustained 60 FPS.
 
 ---
 # Activation status — 2026-10-16
@@ -33,7 +31,7 @@
 - Detector before/after execution against the isolated eight-defect fixture.
 - Honest detector coverage reporting: six seeded rules detected before, two retained as detector misses, and no primary findings after.
 - Playwright checks at 1440×900 and 390×844 for rendering, interaction, JavaScript errors, resource loading, horizontal overflow, and basic accessibility.
-- Structural compatibility for all ten skills, implicit-routing metadata, non-UI exclusion, and MAIOROV STACK precedence.
+- Structural compatibility for all twelve skills, implicit-routing metadata, non-UI exclusions, cross-skill boundaries, and MAIOROV STACK precedence.
 
 ## Not verified
 

@@ -13,8 +13,8 @@ Canonical repository: https://github.com/maiorovalekseyo-create/maiorov-agent-st
 ## Source versions: keep development isolated
 
 - **Stable:** `main` / `v1.0-baseline` — v1.0, unchanged during v2 testing.
-- **Candidate:** `develop/maiorov-stack-v2` — current v2 skill-only plugin package.
-- In the candidate branch, `plugin.json` uses `2.0.0-rc.1`, and the branch-local `.agents/plugins/marketplace.json` points at **that candidate branch**. Do not retarget the stable marketplace during experiments.
+- **Candidate:** `develop/maiorov-stack-v2` — current v2 skills-only candidate plugin package.
+- In the candidate branch, `plugin.json` uses `2.0.0-rc.3`, and the branch-local `.agents/plugins/marketplace.json` points at **that candidate branch**. Do not retarget the stable marketplace during experiments.
 - Before shipping v2 as stable, review and explicitly update the candidate source ref and version, then merge by the agreed release procedure; a development marketplace must not silently begin installing production code.
 
 ## ChatGPT (normal chat/web/mobile)
@@ -32,8 +32,8 @@ Official reference: https://developers.openai.com/plugins/build/plugins
 1. Use a trusted local checkout of **the candidate branch**, not another BOGEMIS/Hustle/Ordinary Genius project.
 2. The package root already contains `plugin.json` and `skills/`, the portable skills-only layout. The repo contains a marketplace descriptor at `.agents/plugins/marketplace.json`.
 3. Open this checkout in the supported ChatGPT desktop Work/Codex environment, refresh/restart as needed, and select the repo marketplace named `MAIOROV STACK`. Install the `maiorov-agent-stack` plugin from the **candidate branch**, if this surface offers it.
-4. In the same product, verify the installed plugin lists the **nine** skills and that the model actually consults `context-guard` and `solution-selector` in the read-only smoke tests.
-5. Do not install/enable it globally or promote to `main` until the candidate passes. No edits to existing project repositories are required for this test.
+4. In the same product, verify the installed plugin lists the **twelve** skills and that the model actually consults `context-guard` and `solution-selector` in the read-only smoke tests.
+5. Do not install/enable it globally or promote to `main` until the candidate passes both Impeccable and motion/mobile workflows. No edits to existing project repositories are required for this test.
 
 For a remote installer or managed workspace, different import/approval options may apply. If the marketplace is not visible, check supported surface, plugin policy, permissions, and whether the selected workspace recognizes local/Git-backed marketplaces before creating another framework.
 

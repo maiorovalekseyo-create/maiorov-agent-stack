@@ -1,7 +1,7 @@
 {
-  "name": "maiorov-stack-motion-mobile-experiment",
+  "name": "maiorov-stack-v2",
   "interface": {
-    "displayName": "MAIOROV STACK — motion and mobile experiment"
+    "displayName": "MAIOROV STACK 2.0"
   },
   "plugins": [
     {
@@ -9,7 +9,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/maiorovalekseyo-create/maiorov-agent-stack",
-        "ref": "experiment/motion-mobile-v1"
+        "ref": "develop/maiorov-stack-v2"
       },
       "policy": {
         "installation": "AVAILABLE",

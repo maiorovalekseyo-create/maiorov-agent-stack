@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "maiorov-agent-stack",
-  "version": "2.0.0-rc.2",
+  "version": "2.0.0-rc.3",
   "description": "Version-aware project execution, solution selection, design preservation, motion and mobile interaction guidance, pinned Impeccable diagnostics, and verified results for ChatGPT and Codex.",
   "repository": "https://github.com/maiorovalekseyo-create/maiorov-agent-stack",
   "license": "MIT",

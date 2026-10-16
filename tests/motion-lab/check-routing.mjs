@@ -51,8 +51,8 @@ const checks = {
   proveItGate: /Use `prove-it`/i.test(motion) && /Use `prove-it`/i.test(mobile),
   crossSkillBoundary: /Defer touch, scroll, safe-area[\s\S]*`mobile-interaction`/i.test(motion) && /`motion-quality` for timing\/easing/i.test(mobile),
   globalRoutingRegistered: /motion-quality/i.test(agents) && /mobile-interaction/i.test(agents),
-  marketplaceTargetsExperiment: marketplace.plugins?.[0]?.source?.ref === 'experiment/motion-mobile-v1',
-  candidateVersionUnchanged: plugin.version === '2.0.0-rc.2',
+  marketplaceTargetsDevelop: marketplace.plugins?.[0]?.source?.ref === 'develop/maiorov-stack-v2',
+  promotedCandidateVersion: plugin.version === '2.0.0-rc.3',
 };
 
 process.stdout.write(`${JSON.stringify({ requiredSkills, foundSkills, checks }, null, 2)}\n`);

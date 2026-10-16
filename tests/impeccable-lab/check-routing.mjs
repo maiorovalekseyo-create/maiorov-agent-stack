@@ -11,6 +11,8 @@ const requiredSkills = [
   'prove-it',
   'project-memory',
   'impeccable-bridge',
+  'motion-quality',
+  'mobile-interaction',
 ];
 
 const [skill, metadata, agents, marketplaceText, pluginText, skillEntries] = await Promise.all([
@@ -42,7 +44,7 @@ const checks = {
   implicitInvocationEnabled: /allow_implicit_invocation:\s*true/i.test(metadata),
   globalRoutingRegistered: /impeccable-bridge/i.test(agents),
   marketplaceTargetsDevelop: marketplace.plugins?.[0]?.source?.ref === 'develop/maiorov-stack-v2',
-  promotedCandidateVersion: plugin.version === '2.0.0-rc.2',
+  promotedCandidateVersion: plugin.version === '2.0.0-rc.3',
 };
 
 process.stdout.write(`${JSON.stringify({ requiredSkills, foundSkills, checks }, null, 2)}\n`);
