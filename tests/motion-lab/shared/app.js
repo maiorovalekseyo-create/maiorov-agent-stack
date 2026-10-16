@@ -7,6 +7,7 @@
   const status = document.querySelector('[data-status]');
   const save = document.querySelector('[data-save]');
   const form = document.querySelector('[data-form]');
+  const formStatus = form.querySelector('[data-form-status]');
   const carousel = document.querySelector('[data-carousel]');
   const track = document.querySelector('[data-track]');
   const previous = document.querySelector('[data-previous]');
@@ -40,7 +41,9 @@
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
-    status.textContent = 'Test signal accepted locally.';
+    const message = 'Test signal accepted locally.';
+    if (formStatus) formStatus.textContent = message;
+    else status.textContent = message;
     form.reset();
   });
 
