@@ -76,13 +76,19 @@ test('baseline defects are reproduced and the fixed interface passes motion, tou
     expect(focus.outlineStyle).not.toBe('none');
     expect(focus.outlineWidth).toBeGreaterThan(0);
 
+    const globalStatus = page.locator('[data-status]');
     await page.getByRole('button', { name: 'Save preference' }).click();
-    await expect(page.getByRole('status')).toHaveText('Preference saved locally.');
+    await expect(globalStatus).toHaveText('Preference saved locally.');
 
     const email = page.getByLabel('Send a test signal');
     await email.fill('motion@example.com');
     await page.getByRole('button', { name: 'Send' }).click();
-    await expect(page.getByRole('status')).toHaveText('Test signal accepted locally.');
+    if (variant === 'fixed') {
+      await expect(page.locator('[data-form-status]')).toHaveText('Test signal accepted locally.');
+      await expect(globalStatus).toHaveText('Preference saved locally.');
+    } else {
+      await expect(globalStatus).toHaveText('Test signal accepted locally.');
+    }
 
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     expect(overflow, `${variant} horizontal overflow at ${viewport.width}x${viewport.height}`).toBe(0);
@@ -180,4 +186,31 @@ test('baseline defects are reproduced and the fixed interface passes motion, tou
   expect(diagnostics.consoleErrors).toEqual([]);
   expect(diagnostics.failedRequests).toEqual([]);
   expect(diagnostics.badResponses).toEqual([]);
+});
+
+
+test('fixed form keeps compact geometry and visible local confirmation', async ({ page }) => {
+  await page.goto('/fixed/', { waitUntil: 'networkidle' });
+
+  const email = page.getByLabel('Send a test signal');
+  const inputBox = await email.boundingBox();
+  expect(inputBox?.height || 0).toBeGreaterThanOrEqual(44);
+  expect(inputBox?.height || Infinity).toBeLessThanOrEqual(60);
+
+  await email.fill('motion@example.com');
+  await page.getByRole('button', { name: 'Send' }).click();
+
+  const formStatus = page.locator('[data-form-status]');
+  await expect(formStatus).toHaveText('Test signal accepted locally.');
+  await expect(email).toHaveValue('');
+
+  const feedback = await formStatus.evaluate((element) => {
+    const box = element.getBoundingClientRect();
+    return { top: box.top, bottom: box.bottom, viewportHeight: window.innerHeight };
+  });
+  expect(feedback.top).toBeGreaterThanOrEqual(0);
+  expect(feedback.bottom).toBeLessThanOrEqual(feedback.viewportHeight);
+
+  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+  expect(overflow).toBe(0);
 });

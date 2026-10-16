@@ -491,6 +491,7 @@ footer {
   .sequence-item { min-height: 220px; }
   .mobile-notes { gap: 42px; padding: 84px 0; }
   .form-row { flex-direction: column; }
+  [data-variant="fixed"] .signal-form input { flex: 0 0 auto; }
   .form-row .action { width: 100%; }
   [data-variant="fixed"] .app-shell {
     min-height: 100dvh;
