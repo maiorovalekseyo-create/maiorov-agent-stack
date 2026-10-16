@@ -2,7 +2,7 @@ name: Impeccable integration lab
 
 on:
   push:
-    branches: [experiment/impeccable-v4.5.2]
+    branches: [develop/maiorov-stack-v2]
   workflow_dispatch:
 
 permissions:
@@ -18,7 +18,7 @@ jobs:
       IMPECCABLE_NO_TELEMETRY: "1"
 
     steps:
-      - name: Check out experimental branch
+      - name: Check out MAIOROV STACK v2 candidate
         uses: actions/checkout@v4
 
       - name: Set up Node.js

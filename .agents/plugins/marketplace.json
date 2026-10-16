@@ -1,7 +1,7 @@
 {
-  "name": "maiorov-stack-impeccable-experiment",
+  "name": "maiorov-stack-v2-candidate",
   "interface": {
-    "displayName": "MAIOROV STACK — Impeccable experiment"
+    "displayName": "MAIOROV STACK 2.0 candidate"
   },
   "plugins": [
     {
@@ -9,7 +9,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/maiorovalekseyo-create/maiorov-agent-stack",
-        "ref": "experiment/impeccable-v4.5.2"
+        "ref": "develop/maiorov-stack-v2"
       },
       "policy": {
         "installation": "AVAILABLE",

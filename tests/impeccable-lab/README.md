@@ -11,4 +11,4 @@ This fixture is isolated from production projects. It contains:
 
 The GitHub Actions workflow downloads only pinned Impeccable release artifacts, verifies their integrity, runs the detector, compares before and after, and uploads detector output, Playwright HTML report, diagnostics, traces and screenshots.
 
-The routing test verifies plugin configuration, not real model selection. Actual implicit invocation must be tested in a fresh supported ChatGPT Work or Codex runtime after installing this experimental plugin.
+The routing test verifies plugin configuration, not real model selection. Actual implicit invocation must be tested in a fresh supported ChatGPT Work or Codex runtime after installing the v2 candidate plugin.

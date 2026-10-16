@@ -1,6 +1,6 @@
 # Impeccable integration lock
 
-This experiment uses Impeccable as an optional diagnostic companion to MAIOROV STACK.
+This integration uses Impeccable as an optional diagnostic companion to MAIOROV STACK.
 
 - Upstream: https://github.com/pbakaus/impeccable
 - Skill: `skill-v4.5.2`

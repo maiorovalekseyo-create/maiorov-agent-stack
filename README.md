@@ -27,12 +27,16 @@ Make the working method persistent across projects and agent sessions:
 
 
 ## V2 activation (candidate branch only)
-- Plugin candidate: `2.0.0-rc.1` in `develop/maiorov-stack-v2`.
+- Plugin candidate: `2.0.0-rc.2` in `develop/maiorov-stack-v2`.
 - Install and read-only smoke tests: [docs/USAGE.md](docs/USAGE.md).
 - Actual installation / invocation status: [docs/ACTIVATION_STATUS.md](docs/ACTIVATION_STATUS.md).
 - A GitHub link in account memory does **not** install skills. Do not merge or propagate to active project repos before verifying on the target runtime.
 
-## Experimental Impeccable companion\n\nThe `experiment/impeccable-v4.5.2` branch adds one auxiliary `impeccable-bridge` skill. It pins upstream skill/CLI `4.5.2` and engine `0.1.14`, preserves MAIOROV STACK as the authority, and tests detector plus Playwright evidence in an isolated fixture. It is not merged into `develop` or `main`.\n\n## Project bootstrap
+## Impeccable companion on the v2 candidate
+
+`develop/maiorov-stack-v2` includes one auxiliary `impeccable-bridge` skill promoted from the accepted experiment. It pins upstream skill/CLI `4.5.2` and engine `0.1.14`, preserves MAIOROV STACK as the authority, and keeps detector plus Playwright evidence in an isolated fixture. It is not merged into `main`. Actual implicit invocation still requires a fresh supported runtime and is not proven by configuration checks alone.
+
+## Project bootstrap
 Each project should include:
 - `AGENTS.md`
 - `PROJECT.md`
