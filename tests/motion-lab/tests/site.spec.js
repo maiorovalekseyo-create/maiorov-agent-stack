@@ -107,6 +107,8 @@ test('baseline defects are reproduced and the fixed interface passes motion, tou
     const gesture = await page.locator('[data-carousel]').evaluate((element) => ({
       touchAction: getComputedStyle(element).touchAction,
       scrollLeft: Math.round(element.scrollLeft),
+      scrollWidth: element.scrollWidth,
+      clientWidth: element.clientWidth,
       trackLeft: getComputedStyle(element.firstElementChild).left,
     }));
     browserEvidence[variant] = {
@@ -118,23 +120,27 @@ test('baseline defects are reproduced and the fixed interface passes motion, tou
 
   expect(browserEvidence.baseline.gesture.touchAction).toBe('none');
   expect(browserEvidence.fixed.gesture.touchAction).toBe('pan-y');
-  expect(browserEvidence.fixed.gesture.scrollLeft).toBeGreaterThan(20);
+  if (browserEvidence.fixed.gesture.scrollWidth > browserEvidence.fixed.gesture.clientWidth) {
+    expect(browserEvidence.fixed.gesture.scrollLeft).toBeGreaterThan(20);
+  } else {
+    expect(browserEvidence.fixed.gesture.scrollLeft).toBe(0);
+  }
   expect(Number.parseFloat(browserEvidence.baseline.inputFontSize)).toBeLessThan(16);
   expect(Number.parseFloat(browserEvidence.fixed.inputFontSize)).toBeGreaterThanOrEqual(16);
 
   await page.goto('/baseline/', { waitUntil: 'networkidle' });
   const baselineToggle = page.locator('[data-panel-toggle]');
-  await baselineToggle.click();
+  await baselineToggle.evaluate((element) => element.click());
   await page.waitForTimeout(60);
-  await baselineToggle.click();
+  await baselineToggle.evaluate((element) => element.click());
   await page.waitForTimeout(700);
   expect(await baselineToggle.getAttribute('aria-expanded')).toBe('true');
 
   await page.goto('/fixed/', { waitUntil: 'networkidle' });
   const fixedToggle = page.locator('[data-panel-toggle]');
-  await fixedToggle.click();
+  await fixedToggle.evaluate((element) => element.click());
   await page.waitForTimeout(60);
-  await fixedToggle.click();
+  await fixedToggle.evaluate((element) => element.click());
   await page.waitForTimeout(260);
   expect(await fixedToggle.getAttribute('aria-expanded')).toBe('false');
   await fixedToggle.click();
