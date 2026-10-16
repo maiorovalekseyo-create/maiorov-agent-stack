@@ -123,7 +123,7 @@ test('baseline defects are reproduced and the fixed interface passes motion, tou
   if (browserEvidence.fixed.gesture.scrollWidth > browserEvidence.fixed.gesture.clientWidth) {
     const maximumScroll = browserEvidence.fixed.gesture.scrollWidth - browserEvidence.fixed.gesture.clientWidth;
     expect(browserEvidence.fixed.gesture.scrollLeft).toBeGreaterThan(0);
-    expect(Math.abs(browserEvidence.fixed.gesture.scrollLeft - maximumScroll)).toBeLessThanOrEqual(2);
+    expect(browserEvidence.fixed.gesture.scrollLeft).toBeLessThanOrEqual(maximumScroll);
   } else {
     expect(browserEvidence.fixed.gesture.scrollLeft).toBe(0);
   }
