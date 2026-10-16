@@ -36,7 +36,11 @@
 - Scope: compact mobile email geometry, local form confirmation, immediate visibility of that confirmation, and focused desktop/mobile Playwright coverage.
 - Preserved: the intentional `tests/motion-lab/baseline/index.html` fixture, the twelve-skill set, plugin version `2.0.0-rc.3`, the `develop/maiorov-stack-v2` workflow trigger, and all active projects.
 - Not promoted: the temporary `experiment/motion-form-reliability-v1` workflow trigger.
-- Develop verification: pending on the documentation commit that records this promotion.
+- Develop verification commit: `891043c0f913d8d82c35dfc21c3dd9c391c850e7`.
+- Impeccable workflow: https://github.com/maiorovalekseyo-create/maiorov-agent-stack/actions/runs/38949577050 — PASS; pinned engine 0.1.14, zero findings after the fixed fixture, exact twelve-skill routing, Playwright 2/2.
+- Motion/mobile workflow: https://github.com/maiorovalekseyo-create/maiorov-agent-stack/actions/runs/38949577059 — PASS; 11/11 seeded risks detected with zero remaining in fixed, exact twelve-skill routing, desktop/mobile Playwright 4/4.
+- Impeccable artifact: https://github.com/maiorovalekseyo-create/maiorov-agent-stack/actions/runs/38949577050/artifacts/12067399212
+- Motion/mobile artifact: https://github.com/maiorovalekseyo-create/maiorov-agent-stack/actions/runs/38949577059/artifacts/12067489609
 
 ### Capabilities not verified by the automated laboratories
 
