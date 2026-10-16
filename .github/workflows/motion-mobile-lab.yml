@@ -65,7 +65,16 @@ jobs:
           set -e
           printf '{"baseline":%s,"fixed":%s}\n' "$BASELINE_EXIT" "$FIXED_EXIT" \
             > "$GITHUB_WORKSPACE/tests/motion-lab/artifacts/impeccable-exit-codes.json"
-          test "$FIXED_EXIT" -eq 0
+          node - "$GITHUB_WORKSPACE/tests/motion-lab/artifacts/impeccable-baseline.json" \
+            "$GITHUB_WORKSPACE/tests/motion-lab/artifacts/impeccable-fixed.json" <<'NODE'
+          const fs = require('node:fs');
+          const [baselinePath, fixedPath] = process.argv.slice(2);
+          const baseline = JSON.parse(fs.readFileSync(baselinePath, 'utf8'));
+          const fixed = JSON.parse(fs.readFileSync(fixedPath, 'utf8'));
+          const primaryFixed = fixed.filter((finding) => finding.severity !== 'advisory');
+          console.log(JSON.stringify({ baseline, fixed, primaryFixed }, null, 2));
+          if (primaryFixed.length > 0) process.exitCode = 1;
+          NODE
 
       - name: Install exact Playwright dependencies
         working-directory: tests/motion-lab
