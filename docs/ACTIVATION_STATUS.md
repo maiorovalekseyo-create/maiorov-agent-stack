@@ -1,7 +1,11 @@
 # Stage 10 experimental status — 2026-10-16
 
-**Status: IN PROGRESS on `experiment/motion-mobile-v1`; not promoted to develop or main.**
+**Status: PRACTICAL CI PASS on `experiment/motion-mobile-v1`; overall PARTIAL and not promoted to develop or main.**
 
+- Verified commit: `49d48939a42d40ca2fab839cd4c0747386929584`.
+- Successful workflow: https://github.com/maiorovalekseyo-create/maiorov-agent-stack/actions/runs/38867029616
+- Evidence artifact: https://github.com/maiorovalekseyo-create/maiorov-agent-stack/actions/runs/38867029616/artifacts/12031965883
+- Source audit found all 11 seeded baseline risks and none in the fixed version; Playwright passed 2/2 desktop/mobile projects.
 - Adds `motion-quality` and `mobile-interaction` as subordinate companions.
 - Pins `emilkowalski/skills` at `2d228630ba1446365f614a108cb8252f1feda202` with Emil Kowalski attribution and MIT license.
 - Adds an isolated baseline/fixed motion lab, deterministic source audit, and desktop/mobile Playwright workflow.
