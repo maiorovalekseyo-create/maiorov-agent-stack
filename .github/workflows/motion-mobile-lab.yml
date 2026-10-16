@@ -2,7 +2,7 @@ name: Motion and mobile interaction lab
 
 on:
   push:
-    branches: [develop/maiorov-stack-v2]
+    branches: [develop/maiorov-stack-v2, experiment/motion-form-reliability-v1]
   workflow_dispatch:
 
 permissions:
