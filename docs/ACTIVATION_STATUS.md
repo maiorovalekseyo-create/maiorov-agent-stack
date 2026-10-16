@@ -1,3 +1,14 @@
+# Stage 10 experimental status — 2026-10-16
+
+**Status: IN PROGRESS on `experiment/motion-mobile-v1`; not promoted to develop or main.**
+
+- Adds `motion-quality` and `mobile-interaction` as subordinate companions.
+- Pins `emilkowalski/skills` at `2d228630ba1446365f614a108cb8252f1feda202` with Emil Kowalski attribution and MIT license.
+- Adds an isolated baseline/fixed motion lab, deterministic source audit, and desktop/mobile Playwright workflow.
+- Keeps plugin version `2.0.0-rc.2`; no global installation, hook, or runtime animation dependency.
+- A passing workflow can verify repository structure and defined browser behavior. It cannot prove automatic model selection, physical-device touch feel, Safari-specific behavior, or sustained 60 FPS.
+
+---
 # Activation status — 2026-10-16
 
 **Overall status: PARTIAL (develop integration is testable in CI; fresh-runtime implicit invocation remains unverified).**

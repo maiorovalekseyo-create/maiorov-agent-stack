@@ -1,0 +1,16 @@
+{
+  "upstream": "https://github.com/emilkowalski/skills",
+  "commit": "2d228630ba1446365f614a108cb8252f1feda202",
+  "author": "Emil Kowalski",
+  "license": "MIT",
+  "files": {
+    "LICENSE": "57b46f1fd11dc62351ea548104a88aa3f659c11b",
+    "performance-cheatsheet.md": "5b279577685cebabbfbb0197bd6b3a74591b3392",
+    "skills/animate/SKILL.md": "7c3b20c6ed681b2d47c9ca9e3ee0e659ed47d032",
+    "skills/animation-performance/SKILL.md": "d688dd7c3ba143c6ae17efd2bc665380d5252c5a",
+    "skills/find-animation-opportunities/SKILL.md": "d3b030fbca9abad9220a032f72d425c6b7fa2de8",
+    "skills/mobile-native/SKILL.md": "94bba21fcb990b850e06effbf5709c96a07446ad",
+    "skills/review-animations/SKILL.md": "577a64397267ce20960de2202950594d5bd6f9b6",
+    "skills/review-animations/STANDARDS.md": "863ea12ea94c1f7a47b5f7e1019e976aa82bd4cd"
+  }
+}

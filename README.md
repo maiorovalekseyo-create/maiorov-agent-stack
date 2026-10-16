@@ -36,6 +36,15 @@ Make the working method persistent across projects and agent sessions:
 
 `develop/maiorov-stack-v2` includes one auxiliary `impeccable-bridge` skill promoted from the accepted experiment. It pins upstream skill/CLI `4.5.2` and engine `0.1.14`, preserves MAIOROV STACK as the authority, and keeps detector plus Playwright evidence in an isolated fixture. It is not merged into `main`. Actual implicit invocation still requires a fresh supported runtime and is not proven by configuration checks alone.
 
+## Experimental motion and mobile companions
+
+The `experiment/motion-mobile-v1` branch adds two focused companion skills without changing plugin version `2.0.0-rc.2`:
+
+- `motion-quality` — purposeful, interruptible, reduced-motion-aware, performance-conscious web motion;
+- `mobile-interaction` — touch, gesture, scrolling, viewport, safe-area, and mobile-browser behavior.
+
+They adapt selected MIT-licensed guidance from `emilkowalski/skills@2d228630ba1446365f614a108cb8252f1feda202`; attribution, license, and source-integrity records live in `integrations/emilkowalski/`. No upstream runtime package or animation library is installed. Automatic routing is configured but remains unproven until a fresh supported runtime selects the skills without direct mention.
+
 ## Project bootstrap
 Each project should include:
 - `AGENTS.md`

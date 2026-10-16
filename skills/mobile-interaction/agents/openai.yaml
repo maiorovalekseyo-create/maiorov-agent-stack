@@ -1,0 +1,6 @@
+interface:
+  display_name: "Mobile Interaction"
+  short_description: "Touch, gestures, scrolling, and mobile browser behavior"
+  default_prompt: "Verify and improve mobile-web touch, gesture, viewport, and scrolling behavior without changing the approved interface."
+policy:
+  allow_implicit_invocation: true

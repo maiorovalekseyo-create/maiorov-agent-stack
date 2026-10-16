@@ -1,0 +1,6 @@
+interface:
+  display_name: "Motion Quality"
+  short_description: "Purposeful, interruptible, efficient web motion"
+  default_prompt: "Apply purposeful and performant motion without changing the approved design, then verify interruption and reduced-motion behavior."
+policy:
+  allow_implicit_invocation: true

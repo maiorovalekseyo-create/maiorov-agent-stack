@@ -13,7 +13,7 @@
 - Reason: skill selection and lifecycle hooks have different platform support and trust boundaries.
 - Revisit when: official Work hook support changes or a managed remote hook is explicitly authorized.
 
-## Promote the accepted integration to develop
+## Promote the accepted Impeccable integration to develop
 
 - Date: 2026-10-16.
 - Decision: fast-forward `develop/maiorov-stack-v2` from the accepted experiment and add only promotion metadata, documentation, target-branch CI routing, and full skill-set compatibility checks.
@@ -21,3 +21,14 @@
 - Preserved: all nine original skill files remain byte-identical to the pre-promotion develop commit.
 - Boundary: `main`, active sites, global installations, global hooks, and ChatGPT settings remain unchanged.
 - Release status: repository and CI evidence may pass, but automatic invocation in a fresh supported runtime remains explicitly unverified.
+
+## Consolidate Emil Kowalski guidance into two companion skills
+
+- Date: 2026-10-16.
+- Decision: adapt only the relevant pinned guidance into `motion-quality` and `mobile-interaction`; preserve attribution and MIT license; do not copy or install the upstream repository.
+- Reason: the two skills create a clear ownership boundary—motion craft/performance versus touch/scroll/mobile-browser behavior—without duplicating `visual-quality`, `impeccable-bridge`, `solution-selector`, or `prove-it`.
+- Selected implementation: native CSS and browser APIs first; no animation runtime dependency.
+- Rejected: installing all upstream skills; adding a motion library for the lab; merging animation review, mobile behavior, and visual direction into one oversized skill.
+- Authority: project rules and approved `DESIGN.md` remain first; MAIOROV STACK controls routing and decisions; the new skills are specialized companions.
+- Proof boundary: Playwright proves defined browser behavior; source audit identifies known risk patterns; CI rAF timing is diagnostic and cannot establish real-device 60 FPS or automatic model invocation.
+- Revisit when: a real project requires springs/layout animation that native primitives cannot provide, the upstream commit changes, or physical-device evidence contradicts the guidance.
