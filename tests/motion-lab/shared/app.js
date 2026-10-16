@@ -44,7 +44,7 @@
     const message = 'Test signal accepted locally.';
     if (formStatus) {
       formStatus.textContent = message;
-      formStatus.scrollIntoView({ block: 'nearest' });
+      formStatus.scrollIntoView({ block: 'nearest', behavior: 'instant' });
     } else status.textContent = message;
     form.reset();
   });
