@@ -1,12 +1,14 @@
 # Stage 10 develop integration — 2026-10-16
 
-**Status: PROMOTED TO `develop/maiorov-stack-v2` as candidate `2.0.0-rc.3`; target-branch CI is required before reporting the exact promotion commit as verified. Overall activation remains PARTIAL.**
+**Status: DEVELOP INTEGRATION CI PASS for implementation commit `c3be685e1374e7c8f30d2486a457654e8e84ca14` as candidate `2.0.0-rc.3`; overall activation remains PARTIAL because fresh-runtime automatic invocation is unverified.**
 
 - Accepted source: `experiment/motion-mobile-v1` at `835eccf2aaf4def1416382098f915dd52cc7dde3`.
 - Adds `motion-quality` and `mobile-interaction` as subordinate companions, producing a twelve-skill candidate.
 - Preserves all ten existing `SKILL.md` blobs byte-for-byte.
 - Pins `emilkowalski/skills` at `2d228630ba1446365f614a108cb8252f1feda202` with Emil Kowalski attribution and MIT license.
 - Keeps the accepted baseline/fixed fixture unchanged and runs both Impeccable and motion/mobile Playwright workflows on develop.
+- Motion/mobile run: https://github.com/maiorovalekseyo-create/maiorov-agent-stack/actions/runs/38880015055 — PASS; artifact: https://github.com/maiorovalekseyo-create/maiorov-agent-stack/actions/runs/38880015055/artifacts/12036479221
+- Impeccable run: https://github.com/maiorovalekseyo-create/maiorov-agent-stack/actions/runs/38880015099 — PASS; artifact: https://github.com/maiorovalekseyo-create/maiorov-agent-stack/actions/runs/38880015099/artifacts/12036344805
 - No global installation, hook, runtime animation dependency, production-site edit, or ChatGPT setting change is included.
 - Configuration can verify routing metadata; it cannot prove automatic model selection, physical-device touch feel, Safari-specific behavior, or sustained 60 FPS.
 

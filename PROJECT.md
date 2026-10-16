@@ -19,7 +19,12 @@
 - Deterministic motion audit: 11/11 seeded baseline risks detected; 0 remained in the fixed version.
 - Playwright: 2/2 projects passed for the accepted experiment.
 
-## Current verification state
+## Develop verification evidence
 
-- The promotion commit must pass both the existing Impeccable workflow and the motion/mobile workflow on `develop/maiorov-stack-v2` before the develop integration is reported as verified.
+- Verified implementation commit: `c3be685e1374e7c8f30d2486a457654e8e84ca14`.
+- Motion/mobile workflow: https://github.com/maiorovalekseyo-create/maiorov-agent-stack/actions/runs/38880015055 — PASS; Playwright 2/2.
+- Motion/mobile artifact: https://github.com/maiorovalekseyo-create/maiorov-agent-stack/actions/runs/38880015055/artifacts/12036479221
+- Impeccable workflow: https://github.com/maiorovalekseyo-create/maiorov-agent-stack/actions/runs/38880015099 — PASS; Playwright 2/2.
+- Impeccable artifact: https://github.com/maiorovalekseyo-create/maiorov-agent-stack/actions/runs/38880015099/artifacts/12036344805
+- Both routing gates accepted the exact twelve-skill set and MAIOROV STACK authority order; all ten pre-existing `SKILL.md` blobs remained byte-identical to the previous develop baseline.
 - Automatic skill invocation by a fresh ChatGPT Work/Codex session, physical-device/Safari behavior, and sustained 60 FPS remain unverified.
