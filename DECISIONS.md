@@ -42,3 +42,13 @@
 - Compatibility fix: both routing gates now expect the complete twelve-skill set and candidate version `2.0.0-rc.3`.
 - Boundary: MAIOROV STACK remains authoritative; `main`, active sites, global installations, ChatGPT settings, and the approved fixture design remain unchanged.
 - Proof boundary: GitHub Actions can prove repository integrity and defined browser behavior, but not automatic fresh-session invocation, real-device feel, Safari coverage, or sustained 60 FPS.
+
+## Prepare MAIOROV STACK 2.0.0 without changing plugin identity
+
+- Date: 2026-10-17.
+- Decision: prepare `release/maiorov-stack-2.0` from verified develop commit `c16b4399c35cfb760d839baf970124d5feb958e3`, set the package version to `2.0.0`, and target `main` only through an unmerged pull request.
+- Identity contract: keep marketplace name `maiorov-stack-marketplace`, plugin name `maiorov-agent-stack`, repository URL, and marketplace source ref `main` identical to stable 1.0.0.
+- Reason: the marketplace and plugin must remain the same installed entity so a version refresh can be offered as an in-place update rather than requiring removal and reinstallation.
+- Rollback point: stable 1.0.0 at branch `v1.0-baseline`, commit `1700c1c81663585600fd34158321bac6a08b57bd`.
+- Verification boundary: repository checks can prove identity continuity, version metadata, skill integrity and browser fixtures; the actual update control and fresh-session automatic invocation remain product-surface tests after release approval.
+- Boundary: do not merge, tag, publish, change installed ChatGPT settings, or edit active projects without separate authorization.

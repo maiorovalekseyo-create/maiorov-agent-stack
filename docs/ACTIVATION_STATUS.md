@@ -1,3 +1,17 @@
+# Stage 12 stable release preparation — 2026-10-17
+
+**Status: RELEASE CANDIDATE. Version `2.0.0` is prepared on `release/maiorov-stack-2.0`; it is not merged into `main`, tagged, published, or installed by this stage.**
+
+- Verified source baseline: `develop/maiorov-stack-v2` at `c16b4399c35cfb760d839baf970124d5feb958e3`.
+- All twelve skills and their rules are preserved; release preparation changes metadata, routing gates, CI branch coverage and documentation only.
+- Stable identity is retained: marketplace `maiorov-stack-marketplace`, plugin `maiorov-agent-stack`, repository URL unchanged, source ref `main`.
+- Previous stable return point: version `1.0.0`, branch `v1.0-baseline`, commit `1700c1c81663585600fd34158321bac6a08b57bd`.
+- Automated routing checks assert identity continuity and stable version metadata. This proves structural eligibility for an in-place update, not the behavior of a particular installed-product UI.
+- Fresh-session automatic invocation, cloud command hooks, Safari/WebKit, physical-device behavior, installed-plugin update UI, downgrade UI and sustained real-device 60 FPS remain unverified.
+- Consult the exact release-branch commit checks and pull request before approving a merge.
+
+---
+
 # Stage 10 develop integration — 2026-10-16
 
 **Status: DEVELOP INTEGRATION CI PASS for implementation commit `c3be685e1374e7c8f30d2486a457654e8e84ca14` as candidate `2.0.0-rc.3`; overall activation remains PARTIAL because fresh-runtime automatic invocation is unverified.**

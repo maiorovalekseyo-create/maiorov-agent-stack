@@ -2,7 +2,7 @@ name: Impeccable integration lab
 
 on:
   push:
-    branches: [develop/maiorov-stack-v2]
+    branches: [main, develop/maiorov-stack-v2, release/maiorov-stack-2.0]
   workflow_dispatch:
 
 permissions:

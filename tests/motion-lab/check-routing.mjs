@@ -15,7 +15,7 @@ const requiredSkills = [
   'mobile-interaction',
 ];
 
-const [motion, motionMetadata, mobile, mobileMetadata, agents, marketplaceText, pluginText, versionsText, skillEntries] = await Promise.all([
+const [motion, motionMetadata, mobile, mobileMetadata, agents, marketplaceText, pluginText, releaseText, versionsText, skillEntries] = await Promise.all([
   readFile('../../skills/motion-quality/SKILL.md', 'utf8'),
   readFile('../../skills/motion-quality/agents/openai.yaml', 'utf8'),
   readFile('../../skills/mobile-interaction/SKILL.md', 'utf8'),
@@ -23,12 +23,14 @@ const [motion, motionMetadata, mobile, mobileMetadata, agents, marketplaceText, 
   readFile('../../AGENTS.md', 'utf8'),
   readFile('../../.agents/plugins/marketplace.json', 'utf8'),
   readFile('../../plugin.json', 'utf8'),
+  readFile('../../release/manifest.json', 'utf8'),
   readFile('../../integrations/emilkowalski/versions.json', 'utf8'),
   readdir('../../skills', { withFileTypes: true }),
 ]);
 
 const marketplace = JSON.parse(marketplaceText);
 const plugin = JSON.parse(pluginText);
+const release = JSON.parse(releaseText);
 const versions = JSON.parse(versionsText);
 const foundSkills = skillEntries.filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort();
 const requiredSorted = [...requiredSkills].sort();
@@ -51,8 +53,20 @@ const checks = {
   proveItGate: /Use `prove-it`/i.test(motion) && /Use `prove-it`/i.test(mobile),
   crossSkillBoundary: /Defer touch, scroll, safe-area[\s\S]*`mobile-interaction`/i.test(motion) && /`motion-quality` for timing\/easing/i.test(mobile),
   globalRoutingRegistered: /motion-quality/i.test(agents) && /mobile-interaction/i.test(agents),
-  marketplaceTargetsDevelop: marketplace.plugins?.[0]?.source?.ref === 'develop/maiorov-stack-v2',
-  promotedCandidateVersion: plugin.version === '2.0.0-rc.3',
+  stableMarketplaceName: marketplace.name === release.previousStable.marketplaceName,
+  stablePluginName: plugin.name === release.previousStable.pluginName
+    && marketplace.plugins?.[0]?.name === release.previousStable.pluginName,
+  stableSourceUrl: marketplace.plugins?.[0]?.source?.url === release.previousStable.sourceUrl,
+  marketplaceTargetsMain: marketplace.plugins?.[0]?.source?.ref === 'main',
+  stablePluginVersion: plugin.version === release.release.version && plugin.version === '2.0.0',
+  previousStablePinned: release.previousStable.version === '1.0.0'
+    && release.previousStable.commit === '1700c1c81663585600fd34158321bac6a08b57bd'
+    && release.previousStable.branch === 'v1.0-baseline',
+  inPlaceUpdateIdentityCompatible: marketplace.name === release.previousStable.marketplaceName
+    && plugin.name === release.previousStable.pluginName
+    && marketplace.plugins?.[0]?.name === release.previousStable.pluginName
+    && marketplace.plugins?.[0]?.source?.url === release.previousStable.sourceUrl
+    && marketplace.plugins?.[0]?.source?.ref === release.previousStable.sourceRef,
 };
 
 process.stdout.write(`${JSON.stringify({ requiredSkills, foundSkills, checks }, null, 2)}\n`);

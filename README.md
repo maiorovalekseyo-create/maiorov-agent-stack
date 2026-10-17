@@ -29,19 +29,21 @@ Make the working method persistent across projects and agent sessions:
 12. mobile-interaction — handle touch, gestures, scrolling, viewports and mobile-browser behavior
 
 
-## V2 activation (candidate branch only)
-- Plugin candidate: `2.0.0-rc.3` in `develop/maiorov-stack-v2`.
-- Install and read-only smoke tests: [docs/USAGE.md](docs/USAGE.md).
+## Stable 2.0 release preparation
+- Prepared version: `2.0.0` in `release/maiorov-stack-2.0`, based on verified commit `c16b4399c35cfb760d839baf970124d5feb958e3`.
+- Intended stable source after an approved merge: `main`.
+- The marketplace identity remains `maiorov-stack-marketplace`; the plugin identity remains `maiorov-agent-stack`. Keeping both identifiers and the repository URL stable allows an installed 1.0.0 plugin to discover 2.0.0 as an update instead of a different plugin.
+- Installation, update, smoke-test and rollback instructions: [docs/USAGE.md](docs/USAGE.md) and [docs/RELEASE_2.0.md](docs/RELEASE_2.0.md).
 - Actual installation / invocation status: [docs/ACTIVATION_STATUS.md](docs/ACTIVATION_STATUS.md).
-- A GitHub link in account memory does **not** install skills. Do not merge or propagate to active project repos before verifying on the target runtime.
+- A GitHub link in account memory does **not** install skills. Version 2.0.0 is not published until the release pull request is explicitly approved and merged.
 
-## Impeccable companion on the v2 candidate
+## Impeccable companion in 2.0
 
-`develop/maiorov-stack-v2` includes one auxiliary `impeccable-bridge` skill promoted from the accepted experiment. It pins upstream skill/CLI `4.5.2` and engine `0.1.14`, preserves MAIOROV STACK as the authority, and keeps detector plus Playwright evidence in an isolated fixture. It is not merged into `main`. Actual implicit invocation still requires a fresh supported runtime and is not proven by configuration checks alone.
+The 2.0 package includes one auxiliary `impeccable-bridge` skill promoted from the accepted experiment. It pins upstream skill/CLI `4.5.2` and engine `0.1.14`, preserves MAIOROV STACK as the authority, and keeps detector plus Playwright evidence in an isolated fixture. Actual implicit invocation still requires a fresh supported runtime and is not proven by configuration checks alone.
 
-## Motion and mobile companions on the v2 candidate
+## Motion and mobile companions in 2.0
 
-`develop/maiorov-stack-v2` includes the two focused companion skills promoted from the accepted `experiment/motion-mobile-v1` commit `835eccf2aaf4def1416382098f915dd52cc7dde3` in plugin version `2.0.0-rc.3`:
+Version 2.0.0 includes the two focused companion skills promoted from the accepted `experiment/motion-mobile-v1` commit `835eccf2aaf4def1416382098f915dd52cc7dde3`:
 
 - `motion-quality` — purposeful, interruptible, reduced-motion-aware, performance-conscious web motion;
 - `mobile-interaction` — touch, gesture, scrolling, viewport, safe-area, and mobile-browser behavior.

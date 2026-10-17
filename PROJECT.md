@@ -1,8 +1,11 @@
-# MAIOROV STACK 2.0 — develop candidate state
+# MAIOROV STACK 2.0 — stable release preparation
 
 - Repository: `maiorovalekseyo-create/maiorov-agent-stack`
-- Working branch: `develop/maiorov-stack-v2`
-- Plugin version: `2.0.0-rc.3`
+- Working branch: `release/maiorov-stack-2.0`
+- Release source: `develop/maiorov-stack-v2` at `c16b4399c35cfb760d839baf970124d5feb958e3`
+- Plugin version: `2.0.0`
+- Intended release target: `main`; merge and publication require explicit user approval.
+- Previous stable rollback point: version `1.0.0`, branch `v1.0-baseline`, commit `1700c1c81663585600fd34158321bac6a08b57bd`.
 - Promotion source: `experiment/motion-mobile-v1` at `835eccf2aaf4def1416382098f915dd52cc7dde3`
 - Previous develop baseline: `3327f6ecf10e06444d21ccbe4b9ddfcb4f61cfad`
 - Goal: maintain twelve compatible skills under MAIOROV STACK authority, including the accepted `motion-quality` and `mobile-interaction` companions.
@@ -48,4 +51,12 @@
 - Safari/WebKit and physical iOS/Android device behavior.
 - iOS input zoom, software-keyboard resizing, safe-area feel, browser-chrome changes, rubber-banding, sticky hover, tap delay, and physical gesture quality.
 - Sustained 60 FPS under representative real-device load; CI frame timing remains diagnostic only.
+
+## Stage 12 — stable release preparation
+
+- Preserve all twelve skills and their accepted authority order without modifying any `SKILL.md` file.
+- Preserve marketplace identity `maiorov-stack-marketplace`, plugin identity `maiorov-agent-stack`, repository URL, and stable source ref `main` so 1.0.0 installations can discover 2.0.0 as the same plugin.
+- Run Impeccable and motion/mobile workflows on the release branch and again on `main` after an explicitly approved merge.
+- Release instructions: `docs/RELEASE_2.0.md`; installation and smoke tests: `docs/USAGE.md`; machine-readable rollback identity: `release/manifest.json`.
+- No release tag, GitHub Release, marketplace publication, `main` mutation, active-project edit, or installed ChatGPT setting change is authorized at this stage.
 
