@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interface Quality Lab — baseline</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: linear-gradient(135deg, #7c3aed, #06b6d4);
+      color: #111827;
+    }
+    main { width: min(920px, calc(100% - 32px)); margin: 40px auto; }
+    .card { background: white; border-radius: 24px; padding: 24px; }
+    .card .card { margin-top: 16px; border: 1px solid #e5e7eb; }
+    .icon-tile { width: 48px; height: 48px; border-radius: 14px; background: #ede9fe; display: grid; place-items: center; }
+    .muted { color: #b6bbc5; }
+    .micro { font-size: 9px; }
+    .wide-row { width: 760px; white-space: nowrap; padding: 12px; background: #eef2ff; }
+    button, input { min-height: 44px; font: inherit; }
+    button { cursor: pointer; }
+    .details[hidden] { display: none; }
+    form { display: flex; gap: 12px; margin-top: 20px; }
+    input { flex: 1; min-width: 0; padding: 0 12px; }
+    ul { padding-left: 20px; }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="card">
+      <h1>Interface quality lab</h1>
+      <p class="muted">A deliberately flawed interface for detector verification.</p>
+      <div class="card">
+        <div class="icon-tile" aria-hidden="true">✦</div>
+        <h3>Eight seeded defects</h3>
+        <p class="micro">This text is intentionally too small for comfortable reading.</p>
+        <div class="wide-row">This fixed-width status row is intentionally wider than the mobile viewport and cannot wrap.</div>
+      </div>
+      <button id="details-toggle" type="button" aria-expanded="false" aria-controls="details">Show details</button>
+      <p id="details" class="details" hidden>The control works even though the visual implementation is flawed.</p>
+      <form id="task-form">
+        <label for="task">Test item</label>
+        <input id="task" name="task" required>
+        <button type="submit">Add</button>
+      </form>
+      <ul id="task-list" aria-live="polite"></ul>
+    </section>
+  </main>
+  <script>
+    const toggle = document.querySelector('#details-toggle');
+    const details = document.querySelector('#details');
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      details.hidden = expanded;
+    });
+    document.querySelector('#task-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const input = document.querySelector('#task');
+      const item = document.createElement('li');
+      item.textContent = input.value;
+      document.querySelector('#task-list').append(item);
+      input.value = '';
+    });
+  </script>
+</body>
+</html>

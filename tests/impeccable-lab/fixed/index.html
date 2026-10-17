@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interface Quality Lab</title>
+  <style>
+    :root { color-scheme: light; --ink: #18212f; --muted: #526071; --line: #cbd5df; --accent: #9d3f24; --paper: #f4f6f8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; background: var(--paper); color: var(--ink); }
+    main { width: min(880px, calc(100% - 32px)); margin: clamp(24px, 6vw, 72px) auto; }
+    .shell { background: #fff; border: 1px solid var(--line); padding: clamp(24px, 5vw, 56px); box-shadow: 0 18px 50px rgb(24 33 47 / 10%); }
+    .intro { display: grid; grid-template-columns: minmax(0, 1fr) 180px; gap: clamp(24px, 5vw, 56px); align-items: center; }
+    h1 { max-width: 14ch; margin: 0; font-size: clamp(40px, 8vw, 76px); line-height: 0.98; letter-spacing: -0.035em; }
+    h2 { margin: 40px 0 10px; font-size: clamp(24px, 4vw, 36px); line-height: 1.15; }
+    p { max-width: 68ch; font-size: 17px; line-height: 1.65; }
+    .muted { color: var(--muted); }
+    .portrait { width: 100%; height: auto; border: 1px solid var(--line); }
+    .status-row { display: flex; flex-wrap: wrap; gap: 8px 20px; padding: 14px 0; border-block: 1px solid var(--line); font-size: 14px; }
+    .status-row strong { color: var(--accent); }
+    button, input { min-height: 48px; font: inherit; }
+    button { border: 1px solid var(--ink); background: var(--ink); color: #fff; padding: 10px 18px; cursor: pointer; }
+    button:hover { background: var(--accent); border-color: var(--accent); }
+    button:focus-visible, input:focus-visible { outline: 3px solid #d97706; outline-offset: 3px; }
+    .details[hidden] { display: none; }
+    form { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 12px; align-items: center; margin-top: 24px; }
+    input { width: 100%; padding: 8px 12px; border: 1px solid #65758a; }
+    ul { padding-left: 24px; font-size: 16px; line-height: 1.6; }
+    @media (max-width: 620px) {
+      .intro { grid-template-columns: 1fr; }
+      .portrait { width: min(180px, 55vw); }
+      form { grid-template-columns: 1fr; align-items: stretch; }
+      form label { font-weight: 700; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <article class="shell">
+      <div class="intro">
+        <div>
+          <h1>Interface quality lab</h1>
+          <p class="muted">A small, isolated surface for proving design diagnostics and browser verification without touching a production project.</p>
+        </div>
+        <img class="portrait" src="profile.svg" alt="Abstract rust and navy geometric composition" width="180" height="180">
+      </div>
+
+      <h2>Verification state</h2>
+      <div class="status-row" aria-label="Verification summary">
+        <span><strong>8</strong> seeded defects repaired</span>
+        <span>Desktop and mobile coverage</span>
+        <span>Local resources only</span>
+      </div>
+
+      <p>The interface preserves a clear hierarchy, readable measure, deliberate spacing and responsive behavior. Automated findings remain supporting evidence rather than a substitute for visual review.</p>
+
+      <button id="details-toggle" type="button" aria-expanded="false" aria-controls="details">Show verification details</button>
+      <p id="details" class="details" hidden>The interaction updates state, keyboard focus remains visible, and no client data leaves this fixture.</p>
+
+      <form id="task-form">
+        <label for="task">Test item</label>
+        <input id="task" name="task" autocomplete="off" required>
+        <button type="submit">Add item</button>
+      </form>
+      <ul id="task-list" aria-live="polite"></ul>
+    </article>
+  </main>
+  <script>
+    const toggle = document.querySelector('#details-toggle');
+    const details = document.querySelector('#details');
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      details.hidden = expanded;
+    });
+    document.querySelector('#task-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const input = document.querySelector('#task');
+      const item = document.createElement('li');
+      item.textContent = input.value;
+      document.querySelector('#task-list').append(item);
+      input.value = '';
+    });
+  </script>
+</body>
+</html>

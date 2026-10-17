@@ -1,0 +1,10 @@
+[
+  { "id": "overused-font", "intent": "Inter is used as the generic default font" },
+  { "id": "ai-color-palette", "intent": "Purple-to-cyan gradient palette" },
+  { "id": "nested-cards", "intent": "A card is nested inside another card" },
+  { "id": "icon-tile-stack", "intent": "Rounded icon tile is stacked above a heading" },
+  { "id": "low-contrast", "intent": "Body text fails WCAG AA contrast" },
+  { "id": "skipped-heading", "intent": "The document jumps from h1 to h3" },
+  { "id": "tiny-text", "intent": "Body copy is rendered below 12px" },
+  { "id": "text-overflow", "intent": "A fixed-width row overflows the mobile viewport" }
+]

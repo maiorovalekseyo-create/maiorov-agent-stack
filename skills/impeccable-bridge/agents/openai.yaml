@@ -1,0 +1,6 @@
+interface:
+  display_name: "Impeccable Bridge"
+  short_description: "Automatic Impeccable checks under MAIOROV STACK control"
+  default_prompt: "Review this frontend with the pinned Impeccable workflow while preserving the approved project design and MAIOROV STACK verification rules."
+policy:
+  allow_implicit_invocation: true

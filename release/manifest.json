@@ -1,0 +1,17 @@
+{
+  "release": {
+    "version": "2.0.0",
+    "branch": "release/maiorov-stack-2.0",
+    "sourceCommit": "c16b4399c35cfb760d839baf970124d5feb958e3",
+    "targetBranch": "main"
+  },
+  "previousStable": {
+    "version": "1.0.0",
+    "commit": "1700c1c81663585600fd34158321bac6a08b57bd",
+    "branch": "v1.0-baseline",
+    "marketplaceName": "maiorov-stack-marketplace",
+    "pluginName": "maiorov-agent-stack",
+    "sourceUrl": "https://github.com/maiorovalekseyo-create/maiorov-agent-stack",
+    "sourceRef": "main"
+  }
+}

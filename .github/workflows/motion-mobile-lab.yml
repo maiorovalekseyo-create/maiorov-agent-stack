@@ -1,0 +1,107 @@
+name: Motion and mobile interaction lab
+
+on:
+  push:
+    branches: [main, develop/maiorov-stack-v2, release/maiorov-stack-2.0]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Skills, motion audit, and Playwright verification
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      DO_NOT_TRACK: "1"
+      IMPECCABLE_NO_TELEMETRY: "1"
+
+    steps:
+      - name: Check out MAIOROV STACK v2 candidate
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
+
+      - name: Verify pinned Emil Kowalski source files
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p tests/motion-lab/artifacts/integrity
+          node integrations/emilkowalski/verify-upstream.mjs \
+            > tests/motion-lab/artifacts/integrity/emil-upstream.json
+
+      - name: Verify source risks and skill routing
+        working-directory: tests/motion-lab
+        run: |
+          node audit-motion.mjs
+          node check-routing.mjs | tee artifacts/routing-check.json
+
+      - name: Run Impeccable visual guard
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/impeccable"
+          curl --fail --location --silent --show-error \
+            --output "$RUNNER_TEMP/impeccable/impeccable-linux-x64" \
+            https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.14/impeccable-linux-x64
+          curl --fail --location --silent --show-error \
+            --output "$RUNNER_TEMP/impeccable/impeccable-linux-x64.sha256" \
+            https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.14/impeccable-linux-x64.sha256
+          cd "$RUNNER_TEMP/impeccable"
+          sha256sum --check impeccable-linux-x64.sha256
+          chmod +x impeccable-linux-x64
+          ./impeccable-linux-x64 engine-probe | tee "$GITHUB_WORKSPACE/tests/motion-lab/artifacts/integrity/impeccable-engine.txt"
+          set +e
+          ./impeccable-linux-x64 detect "$GITHUB_WORKSPACE/tests/motion-lab/baseline/index.html" --json \
+            > "$GITHUB_WORKSPACE/tests/motion-lab/artifacts/impeccable-baseline.json"
+          BASELINE_EXIT=$?
+          ./impeccable-linux-x64 detect "$GITHUB_WORKSPACE/tests/motion-lab/fixed/index.html" --json \
+            > "$GITHUB_WORKSPACE/tests/motion-lab/artifacts/impeccable-fixed.json"
+          FIXED_EXIT=$?
+          set -e
+          printf '{"baseline":%s,"fixed":%s}\n' "$BASELINE_EXIT" "$FIXED_EXIT" \
+            > "$GITHUB_WORKSPACE/tests/motion-lab/artifacts/impeccable-exit-codes.json"
+          node - "$GITHUB_WORKSPACE/tests/motion-lab/artifacts/impeccable-baseline.json" \
+            "$GITHUB_WORKSPACE/tests/motion-lab/artifacts/impeccable-fixed.json" <<'NODE'
+          const fs = require('node:fs');
+          const [baselinePath, fixedPath] = process.argv.slice(2);
+          const baseline = JSON.parse(fs.readFileSync(baselinePath, 'utf8'));
+          const fixed = JSON.parse(fs.readFileSync(fixedPath, 'utf8'));
+          const baselineIds = new Set(baseline.map((finding) => finding.antipattern));
+          const regressions = fixed.filter((finding) => !baselineIds.has(finding.antipattern));
+          console.log(JSON.stringify({
+            policy: 'Impeccable is an advisory visual guard; motion/mobile gates run separately.',
+            baseline,
+            fixed,
+            regressions,
+          }, null, 2));
+          if (regressions.length > 0) process.exitCode = 1;
+          NODE
+
+      - name: Install exact Playwright dependencies
+        working-directory: tests/motion-lab
+        run: npm ci --no-audit --no-fund
+
+      - name: Install Chromium and Linux dependencies
+        working-directory: tests/motion-lab
+        run: npx playwright install --with-deps chromium
+
+      - name: Run desktop and mobile browser checks
+        working-directory: tests/motion-lab
+        run: npm test
+
+      - name: Upload reports, screenshots, and diagnostics
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: motion-mobile-report-${{ github.run_id }}
+          path: |
+            tests/motion-lab/artifacts/
+            tests/motion-lab/playwright-report/
+            tests/motion-lab/test-results/
+          if-no-files-found: warn
+          retention-days: 14

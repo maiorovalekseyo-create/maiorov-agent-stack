@@ -1,0 +1,13 @@
+[
+  { "id": "transition-all", "area": "motion", "description": "Unbounded transition animates unintended properties" },
+  { "id": "ease-in-ui", "area": "motion", "description": "UI response starts slowly" },
+  { "id": "long-ui-duration", "area": "motion", "description": "650 ms interaction exceeds the normal UI budget" },
+  { "id": "scale-zero", "area": "motion", "description": "Panel appears from nothing" },
+  { "id": "layout-animation", "area": "performance", "description": "Width and left animate through layout" },
+  { "id": "locked-transition", "area": "interaction", "description": "Rapid reversal is ignored while motion is locked" },
+  { "id": "ungated-hover", "area": "mobile", "description": "Hover transform applies without capability gating" },
+  { "id": "touch-scroll-block", "area": "mobile", "description": "Carousel owns both axes with touch-action none" },
+  { "id": "mobile-viewport", "area": "mobile", "description": "100vh and missing safe-area coverage" },
+  { "id": "small-mobile-input", "area": "mobile", "description": "13 px input risks iOS focus zoom" },
+  { "id": "missing-reduced-motion", "area": "accessibility", "description": "Baseline movement is unchanged for reduced motion" }
+]

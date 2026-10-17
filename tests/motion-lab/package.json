@@ -1,0 +1,12 @@
+{
+  "name": "maiorov-motion-mobile-lab",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "audit": "node audit-motion.mjs",
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1"
+  }
+}
